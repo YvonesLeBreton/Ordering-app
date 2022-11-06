@@ -29,17 +29,17 @@ document.addEventListener("click", event => {
     /* EventListener for add to order */
     if (event.target.dataset.pizza){
         order.classList.remove("hidden")
-        !isPizzaOrderRender ? orderBox.innerHTML += pizza.getOrderHtml() : updateItemPrice(pizza, "add") 
+        !isPizzaOrderRender ? renderOrder(pizza) : updateItemPrice(pizza, "add") 
         document.getElementById("Pizza").classList.remove("hidden")
     } 
     if (event.target.dataset.hamburger){
         order.classList.remove("hidden")
-        !isHamburgerOrderRender  ? orderBox.innerHTML += hamburger.getOrderHtml() : updateItemPrice(hamburger, "add") 
+        !isHamburgerOrderRender  ? renderOrder(hamburger) : updateItemPrice(hamburger, "add") 
         document.getElementById("Hamburger").classList.remove("hidden")
     } 
     if (event.target.dataset.beer){
         order.classList.remove("hidden")
-        !isBeerOrderRender ? orderBox.innerHTML += beer.getOrderHtml() : updateItemPrice(beer, "add") 
+        !isBeerOrderRender ? renderOrder(beer) : updateItemPrice(beer, "add") 
         document.getElementById("Beer").classList.remove("hidden")
     } 
 
@@ -97,6 +97,10 @@ function renderMenu() { /* Render the menu */
         beer = itemMenu
         document.getElementById("menu").innerHTML += itemMenu.getItemHtml()
     })
+}
+
+function renderOrder(item) {
+    orderBox.innerHTML += item.getOrderHtml()
 }
 
 renderMenu()
