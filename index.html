@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS -->
         <link href="index.css" rel="stylesheet">
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
-        <meta charset="utf-8">
     </head>
     <body>
         <div class="container">   
@@ -31,6 +34,7 @@
 
             <div class="modal hidden" id="modal">
                 <h4>Enter card details</h3>
+                <button class="close-modal" id="close-modal-btn">X</button>
                 <form class="modal-inner" id="pay-form">
                     <input type="text" placeholder="Enter your name" 
                     name="name" required>

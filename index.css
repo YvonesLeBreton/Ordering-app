@@ -179,6 +179,21 @@ button {
     transform: scale(1.1);
 }
 
+.close-modal {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    border: 1px solid #404040;
+    font-size: 1.3rem;
+    border-radius: 50%;
+}
+
+.close-modal:focus,
+.close-modal:hover {
+    background-color: #E63946;
+    color: #ffffff;
+}
+
 /* Form */
 
 .modal {
@@ -232,6 +247,46 @@ input {
 .pay-btn:focus,
 .pay-btn:hover {
     transform: scale(0.8);
+}
+
+/* Media Query */
+
+@media (max-width: 575px) {
+    .container,
+    .second-container,
+    .total-price-container {
+        width: 550px;
+    }
+    .item {
+        justify-content: space-around;
+        margin: 0;
+    }
+    .complete-btn {
+        width: 50vh;
+        margin: .5em auto;
+    }
+    .complete-btn:hover,
+    .complete-btn:focus {
+        transform: scale(1.25);
+    }
+    .message-container p {
+        color: #404040;
+        font-weight: 700;
+        font-size: 1.8rem;
+        padding: .5em;
+    }
+    .order-box h4 {
+        font-size: 1.9rem;
+    }
+    .order-box p {
+        font-size: 1.6rem;
+    }
+    .order-box button {
+        font-size: 1rem;
+    }
+    * {
+        overflow-x: hidden;
+    }
 }
 
 /* Other */

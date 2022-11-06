@@ -1,47 +1,47 @@
-import menuArray from "./data.js"
-
 let totalPrice = 0
 let isPizzaOrderRender = false
 let isHamburgerOrderRender = false
 let isBeerOrderRender = false
 
-function addOrder(data, isRender) {
-    data.quantity++
-    const {name, price, quantity} = data
+function isItemRender(name) {
     name === "Pizza" ? isPizzaOrderRender = true : 
     name === "Hamburger" ? isHamburgerOrderRender = true : 
     isBeerOrderRender = true
-    return `
-        <div class="item" id="${name}">
-        <div class="left-box">
-            <h4>${name}</h4>
-            <button class="remove-btn">remove</button>
-            <p id="${name}-quantity">Quantity: ${quantity}</p>
-        </div>
-        <p id="${name}-price">$${quantity*price}</p>
-    </div>
-    ` 
 }
 
-function updateItemPrice(item) {
-    item.quantity ++
+function updateItemPrice(item, modify) {
+    if (modify === "add") {
+        item.quantity ++
+    }
+    if (modify === "remove") {
+        item.quantity --
+    }
     document.getElementById(`${item.name}-price`).textContent = `$${item.quantity*item.price}`
     document.getElementById(`${item.name}-quantity`).textContent = `Quantity: ${item.quantity}`
 }
 
-function updateTotalPrice(pizza, hambuger, beer) {
+function updateTotalPrice(pizza, hambuger, beer) { /* Update total price */
     return totalPrice = (pizza.price * pizza.quantity) + (beer.price * beer.quantity) + (hambuger.price * hambuger.quantity)
 }
 
-function getThanksMsg(data) {
+function getThanksMsg(data) { /* HTML for thanks message */
     return `<p>Thank, ${data.get("name")}! Your order is on the way ! 🥳</p>`
 }
 
+function resetVariables() { /* Reset all variables than we can use evry time an order is send */
+    totalPrice = 0
+    isPizzaOrderRender = false
+    isHamburgerOrderRender = false
+    isBeerOrderRender = false
+}
+
+
 export {
-    addOrder, 
     updateTotalPrice, 
     updateItemPrice,
     getThanksMsg,
+    resetVariables,
+    isItemRender,
     isPizzaOrderRender,
     isHamburgerOrderRender,
     isBeerOrderRender
